@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" sizes="75x75" href="https://debugbar.dev/assets/favicon.png">
+    <link rel="icon" href="https://debugbar.dev/assets/favicon.svg">
+    <link rel=”mask-icon” href=https://debugbar.dev/assets/favicon.svg color=”#f1f0ee">
+
+    <title>Known Limitations</title>
+<meta property="og:title" content="Known Limitations" />
+
+  <meta name="description" content="Rails debugging dev tools for faster development. Inspect your request details (queries, logs, cache, jobs and more).">
+  <meta property="og:description" content="Rails debugging dev tools for faster development. Inspect your request details (queries, logs, cache, jobs and more)." />
+
+<link rel="canonical" href="https://debugbar.dev/docs/known-limitations"/>
+<meta property="og:url" content="https://debugbar.dev/docs/known-limitations" />
+
+<meta name="twitter:creator" content="@julienbourdeau" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="image" content="https://debugbar.dev/assets/debugbar-graph-img.png" />
+  <meta itemprop="image" content="https://debugbar.dev/assets/debugbar-graph-img.png" />
+  <meta name="twitter:image" content="https://debugbar.dev/assets/debugbar-graph-img.png" />
+  <meta property="og:image" content="https://debugbar.dev/assets/debugbar-graph-img.png" />
+
+    <link rel="stylesheet" href="/assets/build/css/main.css?id=6133fdebf9e0f8066b56d0f1c496ccff">
+    <script defer src="/assets/build/js/main.js?id=6cfaa303ae9b4e027a981e3712c00e01"></script>
+  </head>
+
+  <body class="bg-almost-white bg-pattern text-stone-900 font-sans antialiased">
+
+    <div class="h-2 bg-gradient-to-r from-transparent from-10% via-orange-200 via-30% to-amber-600 to-90%"></div>
+
+    
+  <div class="mt-6 mx-2 md:mx-4 p-2 md:p-4 lg:mt-10 lg:px-8 lg:mx-auto lg:container bg-white border rounded rounded-tr-xl shadow">
+
+    <header class="mb-16">
+      <div x-data="{open: false}" >
+  <div class="px-2 md:px-0 py-2 flex items-center justify-between">
+    
+    <div>
+      <a href="/" class="text-stone-900">
+        <svg
+  class="h-7 fill-current text-current"
+  viewBox="0 0 31.265896 5.6546535"
+  version="1.1"
+  id="svg1"
+  xml:space="preserve"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:svg="http://www.w3.org/2000/svg"><defs
+    id="defs1" /><g
+    id="layer1"
+    style="fill:currentColor;stroke:none;stroke-width:1.5"
+    transform="translate(-58.391679,-79.525602)"><path
+      d="m 66.024956,84.280677 q -0.433917,0 -0.703792,-0.291042 -0.264583,-0.291042 -0.264583,-0.788459 v -0.851958 q 0,-0.502709 0.264583,-0.793751 0.264584,-0.291042 0.703792,-0.291042 0.328084,0 0.53975,0.164042 0.211667,0.164042 0.248709,0.4445 h 0.01587 l -0.01058,-0.661458 v -0.846668 h 0.47625 v 3.862919 h -0.47625 v -0.555625 h -0.0053 q -0.03704,0.28575 -0.248709,0.449792 -0.211666,0.15875 -0.53975,0.15875 z m 0.15875,-0.41275 q 0.296334,0 0.465667,-0.185209 0.169334,-0.185208 0.169334,-0.513292 v -0.79375 q 0,-0.328084 -0.169334,-0.513292 -0.169333,-0.185209 -0.465667,-0.185209 -0.301625,0 -0.47625,0.179917 -0.174625,0.179917 -0.174625,0.518584 v 0.79375 q 0,0.338667 0.174625,0.518584 0.174625,0.179917 0.47625,0.179917 z m 3.185588,0.41275 q -0.343959,0 -0.603251,-0.137583 -0.254,-0.137584 -0.396875,-0.386292 -0.137583,-0.254 -0.137583,-0.587376 v -0.79375 q 0,-0.338667 0.137583,-0.587375 0.142875,-0.248709 0.396875,-0.386292 0.259292,-0.137584 0.603251,-0.137584 0.343958,0 0.597958,0.137584 0.259292,0.137583 0.396876,0.386292 0.142875,0.248708 0.142875,0.587375 v 0.513292 h -1.809751 v 0.280458 q 0,0.343959 0.174625,0.529167 0.174625,0.179917 0.497417,0.179917 0.275166,0 0.4445,-0.09525 0.169333,-0.100542 0.206375,-0.296333 h 0.47625 q -0.04762,0.365125 -0.359833,0.582083 -0.306917,0.211667 -0.767292,0.211667 z m -0.672042,-1.751543 h 1.344084 v -0.153458 q 0,-0.343959 -0.174625,-0.529167 -0.169334,-0.185209 -0.497417,-0.185209 -0.322792,0 -0.497417,0.185209 -0.174625,0.185208 -0.174625,0.529167 z m 4.016379,1.751543 q -0.328083,0 -0.53975,-0.15875 -0.211667,-0.164042 -0.248709,-0.449792 h -0.0053 V 84.22776 H 71.44363 v -3.862919 h 0.476251 v 0.846668 l -0.01058,0.661458 h 0.01588 q 0.03704,-0.280458 0.248709,-0.4445 0.211667,-0.164042 0.53975,-0.164042 0.439209,0 0.703792,0.291042 0.264584,0.291042 0.264584,0.793751 v 0.851958 q 0,0.497417 -0.264584,0.788459 -0.264583,0.291042 -0.703792,0.291042 z m -0.15875,-0.41275 q 0.301625,0 0.47625,-0.179917 0.174625,-0.179917 0.174625,-0.518584 v -0.79375 q 0,-0.338667 -0.174625,-0.518584 -0.174625,-0.179917 -0.47625,-0.179917 -0.291042,0 -0.465667,0.185209 -0.169333,0.185208 -0.169333,0.513292 v 0.79375 q 0,0.328084 0.169333,0.513292 0.174625,0.185209 0.465667,0.185209 z m 3.159129,0.41275 q -0.502709,0 -0.804334,-0.296333 -0.301625,-0.301626 -0.301625,-0.814918 v -1.852084 h 0.47625 v 1.852084 q 0,0.328084 0.169334,0.513292 0.169333,0.179917 0.460375,0.179917 0.296333,0 0.465667,-0.179917 0.174625,-0.185208 0.174625,-0.513292 v -1.852084 h 0.47625 v 1.852084 q 0,0.513292 -0.306917,0.814918 -0.306916,0.296333 -0.809625,0.296333 z m 2.444754,0.899584 v -0.433917 h 0.926042 q 0.428625,0 0.428625,-0.41275 v -0.370417 l 0.01058,-0.529167 h -0.01058 q -0.02646,0.280458 -0.238125,0.4445 -0.206375,0.164042 -0.534459,0.164042 -0.449792,0 -0.709084,-0.291042 -0.259291,-0.296333 -0.259291,-0.79375 v -0.613834 q 0,-0.497417 0.259291,-0.788459 0.259292,-0.291042 0.709084,-0.291042 0.328084,0 0.534459,0.164042 0.211667,0.164042 0.238125,0.4445 h 0.0053 v -0.555625 h 0.470958 v 3.016252 q 0,0.391583 -0.243417,0.619125 -0.238125,0.227542 -0.66675,0.227542 z m 0.724958,-1.550459 q 0.296334,0 0.465667,-0.185209 0.169334,-0.185208 0.169334,-0.513292 v -0.555625 q 0,-0.328084 -0.169334,-0.513292 -0.169333,-0.185209 -0.465667,-0.185209 -0.301625,0 -0.470958,0.179917 -0.164042,0.179917 -0.164042,0.518584 v 0.555625 q 0,0.338667 0.164042,0.518584 0.169333,0.179917 0.470958,0.179917 z m 3.354921,0.650875 q -0.328083,0 -0.53975,-0.15875 -0.211667,-0.164042 -0.248709,-0.449792 h -0.0053 v 0.555625 h -0.476251 v -3.862919 h 0.476251 v 0.846668 l -0.01058,0.661458 h 0.01587 q 0.03704,-0.280458 0.248709,-0.4445 0.211667,-0.164042 0.53975,-0.164042 0.439209,0 0.703792,0.291042 0.264584,0.291042 0.264584,0.793751 v 0.851958 q 0,0.497417 -0.264584,0.788459 -0.264583,0.291042 -0.703792,0.291042 z m -0.15875,-0.41275 q 0.301625,0 0.47625,-0.179917 0.174625,-0.179917 0.174625,-0.518584 v -0.79375 q 0,-0.338667 -0.174625,-0.518584 -0.174625,-0.179917 -0.47625,-0.179917 -0.291042,0 -0.465667,0.185209 -0.169333,0.185208 -0.169333,0.513292 v 0.79375 q 0,0.328084 0.169333,0.513292 0.174625,0.185209 0.465667,0.185209 z m 2.91042,0.41275 q -0.460375,0 -0.724958,-0.232833 -0.264584,-0.238126 -0.264584,-0.640293 0,-0.407458 0.264584,-0.640292 0.264583,-0.232833 0.714375,-0.232833 h 0.899584 v -0.291042 q 0,-0.264583 -0.164042,-0.41275 -0.15875,-0.148167 -0.4445,-0.148167 -0.254,0 -0.428625,0.111125 -0.174625,0.111125 -0.216959,0.291042 h -0.47625 q 0.02646,-0.243417 0.174625,-0.428625 0.153458,-0.185209 0.396875,-0.28575 0.248709,-0.105834 0.550334,-0.105834 0.502709,0 0.79375,0.259292 0.291042,0.259292 0.291042,0.703792 v 2.000251 h -0.465667 v -0.555625 h -0.0053 q -0.03175,0.280458 -0.275167,0.4445 -0.238125,0.164042 -0.619126,0.164042 z m 0.116417,-0.375709 q 0.338667,0 0.555626,-0.169333 0.216958,-0.169333 0.216958,-0.433917 v -0.41275 h -0.889001 q -0.238125,0 -0.375708,0.132292 -0.137584,0.132291 -0.137584,0.359833 0,0.243417 0.164042,0.386292 0.169334,0.137583 0.465667,0.137583 z m 2.30188,0.322792 v -2.910418 h 0.47625 v 0.555625 h 0.0053 q 0.03704,-0.291042 0.238125,-0.449792 0.201083,-0.15875 0.534458,-0.15875 0.455084,0 0.724959,0.291042 0.269875,0.28575 0.269875,0.777876 v 0.201083 h -0.47625 v -0.15875 q 0,-0.333375 -0.169333,-0.513292 -0.169334,-0.185209 -0.492126,-0.185209 -0.635,0 -0.635,0.698501 v 1.852084 z"
+      id="text1"
+      style="font-size:5.29167px;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono';stroke-width:0.264583"
+      aria-label="debugbar" /><g
+      style="fill:none;stroke:currentColor;stroke-width:1.5"
+      id="g3"
+      transform="matrix(0.26458333,0,0,0.26458333,57.399491,79.128727)"><path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M 19.5,14.25 V 11.625 A 3.375,3.375 0 0 0 16.125,8.25 h -1.5 A 1.125,1.125 0 0 1 13.5,7.125 v -1.5 A 3.375,3.375 0 0 0 10.125,2.25 H 8.25 m 6.75,12 H 9 m 1.5,-12 H 5.625 C 5.004,2.25 4.5,2.754 4.5,3.375 v 17.25 c 0,0.621 0.504,1.125 1.125,1.125 h 12.75 c 0.621,0 1.125,-0.504 1.125,-1.125 V 11.25 a 9,9 0 0 0 -9,-9 z"
+        id="path1" /></g></g></svg>
+      </a>
+    </div>
+
+    
+
+    
+    <div class="-mr-2 flex items-center md:hidden">
+      <button @click="open = !open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
+        <svg x-show="!open" class="block h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg x-show="open" class="h-6 w-6" style="display:none;" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    
+    <div class="hidden py-3 md:flex items-center space-x-8 font-semibold">
+              <a href="/" class="inline-flex items-center gap-x-1.5 hover:text-orange-600" >
+          Home
+
+                  </a>
+              <a href="/docs" class="inline-flex items-center gap-x-1.5 hover:text-orange-600" >
+          Documentation
+
+                  </a>
+              <a href="/changelog" class="inline-flex items-center gap-x-1.5 hover:text-orange-600" >
+          Changelog
+
+                  </a>
+              <a href="https://github.com/julienbourdeau/debugbar" class="inline-flex items-center gap-x-1.5 hover:text-orange-600"  target="_blank" >
+          Github
+
+                      <svg class="-ml-0.5 size-4" data-slot="icon" fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M6.22 8.72a.75.75 0 0 0 1.06 1.06l5.22-5.22v1.69a.75.75 0 0 0 1.5 0v-3.5a.75.75 0 0 0-.75-.75h-3.5a.75.75 0 0 0 0 1.5h1.69L6.22 8.72Z"></path>
+              <path d="M3.5 6.75c0-.69.56-1.25 1.25-1.25H7A.75.75 0 0 0 7 4H4.75A2.75 2.75 0 0 0 2 6.75v4.5A2.75 2.75 0 0 0 4.75 14h4.5A2.75 2.75 0 0 0 12 11.25V9a.75.75 0 0 0-1.5 0v2.25c0 .69-.56 1.25-1.25 1.25h-4.5c-.69 0-1.25-.56-1.25-1.25v-4.5Z"></path>
+            </svg>
+                  </a>
+          </div>
+  </div>
+
+  
+  <div x-show="open" @click.away="open = false" class="md:hidden shadow-lg" style="display: none;">
+    <div class="block pt-2 pb-3">
+              <a href="/"
+           class="mt-1 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium  transition duration-150 ease-in-out hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-stone-800 focus:bg-stone-50 focus:border-stone-300"
+                   >
+          <div class="inline-flex items-center gap-x-1.5">
+            Home
+
+                      </div>
+        </a>
+              <a href="/docs"
+           class="mt-1 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium  transition duration-150 ease-in-out hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-stone-800 focus:bg-stone-50 focus:border-stone-300"
+                   >
+          <div class="inline-flex items-center gap-x-1.5">
+            Documentation
+
+                      </div>
+        </a>
+              <a href="/changelog"
+           class="mt-1 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium  transition duration-150 ease-in-out hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-stone-800 focus:bg-stone-50 focus:border-stone-300"
+                   >
+          <div class="inline-flex items-center gap-x-1.5">
+            Changelog
+
+                      </div>
+        </a>
+              <a href="https://github.com/julienbourdeau/debugbar"
+           class="mt-1 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium  transition duration-150 ease-in-out hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-stone-800 focus:bg-stone-50 focus:border-stone-300"
+            target="_blank"         >
+          <div class="inline-flex items-center gap-x-1.5">
+            Github
+
+                          <svg class="-ml-0.5 size-4" data-slot="icon" fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M6.22 8.72a.75.75 0 0 0 1.06 1.06l5.22-5.22v1.69a.75.75 0 0 0 1.5 0v-3.5a.75.75 0 0 0-.75-.75h-3.5a.75.75 0 0 0 0 1.5h1.69L6.22 8.72Z"></path>
+                <path d="M3.5 6.75c0-.69.56-1.25 1.25-1.25H7A.75.75 0 0 0 7 4H4.75A2.75 2.75 0 0 0 2 6.75v4.5A2.75 2.75 0 0 0 4.75 14h4.5A2.75 2.75 0 0 0 12 11.25V9a.75.75 0 0 0-1.5 0v2.25c0 .69-.56 1.25-1.25 1.25h-4.5c-.69 0-1.25-.56-1.25-1.25v-4.5Z"></path>
+              </svg>
+                      </div>
+        </a>
+          </div>
+  </div>
+</div>
+    </header>
+
+    <div class="main-section mb-24">
+
+      <div>
+        <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl md:-top-80" aria-hidden="true">
+          <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-stone-800 to-red-400 opacity-10 md:left-[calc(50%-30rem)] md:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+        </div>
+
+        <div>
+          
+  <div class="space-y-12 lg:flex lg:justify-between lg:space-y-0">
+    <aside x-data="{ tocOpen: false }" id="docs-table-of-content" class="shadow-lg p-3 border lg:border-0 lg:min-w-64 lg:mr-20 lg:shadow-none">
+      <h2 @click="tocOpen = true; console.log(tocOpen)" class="cursor-pointer lg:cursor-auto text-xl font-semibold leading-10">Table of contents</h2>
+
+      <div x-show="tocOpen"  @click.away="tocOpen = false; console.log(tocOpen)" class="lg:hidden">
+        <nav class="mt-6">
+      <h3 class="font-display text-sm font-semibold leading-6">Getting Started</h3>
+
+    <ul role="list" class="mt-2 mb-3 space-y-2 border-l-2 border-stone-100 lg:mt-4 lg:mb-6 lg:space-y-4 lg:border-stone-200">
+      
+        <li class="relative">
+                      <a href="/docs/introduction" class="block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full text-stone-700 before:bg-stone-300 hover:text-stone-800 hover:before:block  before:hidden ">
+              Introduction
+            </a>
+                  </li>
+
+      
+        <li class="relative">
+                      <a href="/docs/installation" class="block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full text-stone-700 before:bg-stone-300 hover:text-stone-800 hover:before:block  before:hidden ">
+              Installation
+            </a>
+                  </li>
+
+      
+        <li class="relative">
+                      <a href="/docs/known-limitations" class="block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full text-stone-700 before:bg-stone-300 hover:text-stone-800 hover:before:block  font-semibold before:block ">
+              Known Limitations
+            </a>
+                  </li>
+
+      
+        <li class="relative">
+                      <a href="/docs/configuration" class="block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full text-stone-700 before:bg-stone-300 hover:text-stone-800 hover:before:block  before:hidden ">
+              Configuration
+            </a>
+                  </li>
+
+      
+        <li class="relative">
+                      <a href="/docs/how-it-works" class="block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full text-stone-700 before:bg-stone-300 hover:text-stone-800 hover:before:block  before:hidden ">
+              How It Works
+            </a>
+                  </li>
+
+          </ul>
+      <h3 class="font-display text-sm font-semibold leading-6">Features</h3>
+
+    <ul role="list" class="mt-2 mb-3 space-y-2 border-l-2 border-stone-100 lg:mt-4 lg:mb-6 lg:space-y-4 lg:border-stone-200">
+      
+        <li class="relative">
+                      <a href="/docs/request-details" class="block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full text-stone-700 before:bg-stone-300 hover:text-stone-800 hover:before:block  before:hidden ">
+              General request details
+            </a>
+                  </li>
+
+      
+        <li class="relative">
+                      <a href="/docs/debugging-with-print" class="block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full text-stone-700 before:bg-stone-300 hover:text-stone-800 hover:before:block  before:hidden ">
+              Print debug messages
+            </a>
+                  </li>
+
+      
+        <li class="relative">
+                      <a href="/docs/active-record" class="block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full text-stone-700 before:bg-stone-300 hover:text-stone-800 hover:before:block  before:hidden ">
+              Active Record
+            </a>
+                  </li>
+
+      
+        <li class="relative">
+                      <a href="/docs/active-model" class="block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full text-stone-700 before:bg-stone-300 hover:text-stone-800 hover:before:block  before:hidden ">
+              Active Model
+            </a>
+                  </li>
+
+      
+        <li class="relative">
+                      <a href="/docs/cache" class="block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full text-stone-700 before:bg-stone-300 hover:text-stone-800 hover:before:block  before:hidden ">
+              Cache
+            </a>
+                  </li>
+
+      
+        <li class="relative">
+                      <a href="/docs/jobs" class="block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full text-stone-700 before:bg-stone-300 hover:text-stone-800 hover:before:block  before:hidden ">
+              Jobs
+            </a>
+                  </li>
+
+      
+        <li class="relative">
+                      <a href="/docs/logs" class="block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full text-stone-700 before:bg-stone-300 hover:text-stone-800 hover:before:block  before:hidden ">
+              Logs (experimental)
+            </a>
+                  </li>
+
+      
+        <li class="relative">
+                      <span class="cursor-not-allowed block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full text-stone-700 before:bg-stone-300 hover:before:block before:hidden">
+                    HTTP (soon)
+                  </span>
+                  </li>
+
+          </ul>
+      <h3 class="font-display text-sm font-semibold leading-6">What&#039;s next</h3>
+
+    <ul role="list" class="mt-2 mb-3 space-y-2 border-l-2 border-stone-100 lg:mt-4 lg:mb-6 lg:space-y-4 lg:border-stone-200">
+      
+        <li class="relative">
+                      <a href="/docs/upcoming-features" class="block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full text-stone-700 before:bg-stone-300 hover:text-stone-800 hover:before:block  before:hidden ">
+              Upcoming features
+            </a>
+                  </li>
+
+          </ul>
+  </nav>
+      </div>
+
+      <div class="hidden lg:block">
+        <nav class="mt-6">
+      <h3 class="font-display text-sm font-semibold leading-6">Getting Started</h3>
+
+    <ul role="list" class="mt-2 mb-3 space-y-2 border-l-2 border-stone-100 lg:mt-4 lg:mb-6 lg:space-y-4 lg:border-stone-200">
+      
+        <li class="relative">
+                      <a href="/docs/introduction" class="block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full text-stone-700 before:bg-stone-300 hover:text-stone-800 hover:before:block  before:hidden ">
+              Introduction
+            </a>
+                  </li>
+
+      
+        <li class="relative">
+                      <a href="/docs/installation" class="block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full text-stone-700 before:bg-stone-300 hover:text-stone-800 hover:before:block  before:hidden ">
+              Installation
+            </a>
+                  </li>
+
+      
+        <li class="relative">
+                      <a href="/docs/known-limitations" class="block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full text-stone-700 before:bg-stone-300 hover:text-stone-800 hover:before:block  font-semibold before:block ">
+              Known Limitations
+            </a>
+                  </li>
+
+      
+        <li class="relative">
+                      <a href="/docs/configuration" class="block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full text-stone-700 before:bg-stone-300 hover:text-stone-800 hover:before:block  before:hidden ">
+              Configuration
+            </a>
+                  </li>
+
+      
+        <li class="relative">
+                      <a href="/docs/how-it-works" class="block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full text-stone-700 before:bg-stone-300 hover:text-stone-800 hover:before:block  before:hidden ">
+              How It Works
+            </a>
+                  </li>
+
+          </ul>
+      <h3 class="font-display text-sm font-semibold leading-6">Features</h3>
+
+    <ul role="list" class="mt-2 mb-3 space-y-2 border-l-2 border-stone-100 lg:mt-4 lg:mb-6 lg:space-y-4 lg:border-stone-200">
+      
+        <li class="relative">
+                      <a href="/docs/request-details" class="block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full text-stone-700 before:bg-stone-300 hover:text-stone-800 hover:before:block  before:hidden ">
+              General request details
+            </a>
+                  </li>
+
+      
+        <li class="relative">
+                      <a href="/docs/debugging-with-print" class="block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full text-stone-700 before:bg-stone-300 hover:text-stone-800 hover:before:block  before:hidden ">
+              Print debug messages
+            </a>
+                  </li>
+
+      
+        <li class="relative">
+                      <a href="/docs/active-record" class="block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full text-stone-700 before:bg-stone-300 hover:text-stone-800 hover:before:block  before:hidden ">
+              Active Record
+            </a>
+                  </li>
+
+      
+        <li class="relative">
+                      <a href="/docs/active-model" class="block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full text-stone-700 before:bg-stone-300 hover:text-stone-800 hover:before:block  before:hidden ">
+              Active Model
+            </a>
+                  </li>
+
+      
+        <li class="relative">
+                      <a href="/docs/cache" class="block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full text-stone-700 before:bg-stone-300 hover:text-stone-800 hover:before:block  before:hidden ">
+              Cache
+            </a>
+                  </li>
+
+      
+        <li class="relative">
+                      <a href="/docs/jobs" class="block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full text-stone-700 before:bg-stone-300 hover:text-stone-800 hover:before:block  before:hidden ">
+              Jobs
+            </a>
+                  </li>
+
+      
+        <li class="relative">
+                      <a href="/docs/logs" class="block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full text-stone-700 before:bg-stone-300 hover:text-stone-800 hover:before:block  before:hidden ">
+              Logs (experimental)
+            </a>
+                  </li>
+
+      
+        <li class="relative">
+                      <span class="cursor-not-allowed block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full text-stone-700 before:bg-stone-300 hover:before:block before:hidden">
+                    HTTP (soon)
+                  </span>
+                  </li>
+
+          </ul>
+      <h3 class="font-display text-sm font-semibold leading-6">What&#039;s next</h3>
+
+    <ul role="list" class="mt-2 mb-3 space-y-2 border-l-2 border-stone-100 lg:mt-4 lg:mb-6 lg:space-y-4 lg:border-stone-200">
+      
+        <li class="relative">
+                      <a href="/docs/upcoming-features" class="block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full text-stone-700 before:bg-stone-300 hover:text-stone-800 hover:before:block  before:hidden ">
+              Upcoming features
+            </a>
+                  </li>
+
+          </ul>
+  </nav>
+      </div>
+
+    </aside>
+
+    <div class="w-full">
+      <article>
+        <header class="mb-12 space-y-1">
+          <p class="font-display text-sm font-medium text-orange-600">Getting Started</p>
+          <h1 class="font-display text-4xl font-bold tracking-tight text-stone-900">Known Limitations</h1>
+                      <h2 class="font-display text-lg tracking-tight text-stone-600">The Rails debugbar is under active development and has some known limitations.</h2>
+                  </header>
+
+        <div class="prose lg:prose-lg prose-stone max-w-none prose-headings:scroll-mt-28 prose-headings:font-display prose-headings:font-normal lg:prose-headings:scroll-mt-[8.5rem] prose-lead:text-stone-500  prose-a:font-semibold hover:prose-a:[--tw-prose-underline-size:6px] prose-pre:rounded-xl prose-pre:bg-stone-900 prose-pre:shadow-lg">
+
+          <h2>Single process server</h2>
+
+<p>Currently, the debugbar only support backend running a single process.</p>
+
+<p>For example with Puma, you must run in <em>single mode</em> (default) and not <em>cluster mode</em>! Make sure <code>WEB_CONCURRENCY</code> is not set or set to <code>0</code>.</p>
+
+<p>See <a href="/docs/upcoming-features">Upcoming Features</a> section for some technical details.</p>
+
+<h2>Shared backend</h2>
+
+<p>The debugbar only works if you're the only user of the backend. If you have multiple users, the data will be mixed.</p>
+
+<p>For example, let's say 2 people are working on the SPA frontend, both using a shared hosted staging environment for the backend. The debugbar will show the data from both users.</p>
+
+<p>I intend to <a href="/docs/upcoming-features">add this feature</a>.</p>
+
+<h2>Missing response data</h2>
+
+<p>Today, the Debugbar Rack middleware is inserted after <code>ActionDispatch::RequestId</code> so there are situation where the response data is not available when we stop tracking the current request. Typically, if an exception is raised in the controller, the response data is not available.</p>
+
+<p>I'll try to move the middleware much earlier in the stack to fix this, but it comes with its own set of challenges.</p>
+
+        </div>
+      </article>
+    </div>
+  </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <footer class="mb-6 mx-2 md:mx-4 py-2 lg:mb-16 lg:mx-auto lg:container">
+    <div class="space-y-1 md:flex md:space-y-0 items-center justify-between flex-row-reverse">
+  <p class="text-base text-stone-600">
+    Maintained by <a class="text-stone-600 font-medium" href="https://www.julienbourdeau.com">Julien Bourdeau</a>
+  </p>
+
+  <p class="text-sm text-stone-400">
+    <a class="font-medium" href="https://debugbar.dev">debugbar.dev</a> is built with <a href="https://jigsaw.tighten.co">Jigsaw</a>, <a href="https://tailwindcss.com/">Tailwind</a> and
+    <a href="https://torchlight.dev/">Torchlight</a>.
+  </p>
+</div>
+  </footer>
+
+
+
+    <div id="__debugbar"></div>
+
+    <script defer src="/assets/debugbar/debugbar-756U0KKi.js"></script>
+
+    <script type="text/javascript">
+      window._debugbarConfigOptions = {mode: 'offline', height: 540}
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MCX1TNRYH1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MCX1TNRYH1');
+</script>
+
+  </body>
+</html>
